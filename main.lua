@@ -25,14 +25,14 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
         syn.protect_gui(scrgui)
         scrgui.Parent = game:GetService("CoreGui")
     elseif gethui then
-        if gethui():FindFirstChild("ScreenGui") and deleteprevious then
-            gethui().ScreenGui.main:TweenPosition(gethui().ScreenGui.main.Position + UDim2.new(0,0,2,0), "InOut", "Quart", 0.5)
-            game:GetService("Debris"):AddItem(gethui().ScreenGui, 1)
+        if game.Players.LocalPlayer.PlayerGui:FindFirstChild("ScreenGui") and deleteprevious then
+            game.Players.LocalPlayer.PlayerGui.ScreenGui.main:TweenPosition(game.Players.LocalPlayer.PlayerGui.ScreenGui.main.Position + UDim2.new(0,0,2,0), "InOut", "Quart", 0.5)
+            game:GetService("Debris"):AddItem(game.Players.LocalPlayer.PlayerGui.ScreenGui, 1)
         end
 
         -- main
          scrgui = Instance.new("ScreenGui")
-        scrgui.Parent = gethui()
+        scrgui.Parent = game.Players.LocalPlayer.PlayerGui
     else
         cg = game:GetService("CoreGui")
         if cg:FindFirstChild("ScreenGui") and deleteprevious then
@@ -42,11 +42,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
          scrgui = Instance.new("ScreenGui")
         scrgui.Parent = cg
     end
-        
     
-    
-    
-
     if dosplash then
         local splash = Instance.new("Frame")
         splash.Name = "splash"
