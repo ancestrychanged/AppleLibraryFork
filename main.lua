@@ -559,7 +559,7 @@ function lib:init(ti, dosplash, visiblekey, deleteprevious)
     else
         title.Text = ""
     end
-       tp(main, UDim2.new(0.5, 0, 0.5, 0), 1)
+       --tp(main, UDim2.new(0.5, 0, 0.5, 0), 1)
     window = {}
 
     function window:ToggleVisible()
